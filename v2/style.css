@@ -27,14 +27,54 @@ body{
     justify-content: center;
     align-items: center;
     color: white;
+     overflow: hidden;
+            border-right: 2px solid #00ff00;
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: 2px;
+            animation: 
+                typing 3.5s steps(40, end),
+                blink-caret 0.75s step-end infinite;
 }
+.typing-effect {
+            overflow: hidden;
+            border-right: 2px solid #00ff00;
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: 2px;
+            animation: 
+                typing 3.5s steps(40, end),
+                blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #00ff00 }
+        }
 
 
 #subtitulo{
+    position: relative;
+    top: 20px;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
+    animation: flutuar 3s ease-in-out infinite;
+}
+
+@keyframes flutuar{
+        0%, 100%{
+        transform: translateY(0);
+    }
+    50%{
+        transform:  translateY(-5px);
+    }
 }
 
 .btns{
@@ -45,3 +85,4 @@ body{
     gap: 20px;
     top: 50px;
 }
+

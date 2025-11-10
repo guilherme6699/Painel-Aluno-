@@ -17,6 +17,58 @@
     <button class="btn btn-primary" id="botao1">Abrir VSCode</button>
     <button class="btn btn-primary" id="botao2">abrir o xampp + mysql</button>
     <button class="btn btn-primary" id="botao3">abrir o virtual box</button>
+    <button class="btn-open-modal" onclick="openCreateFolderWindow()"></button>
     </div>
+    
+    <!-- Status e lista de pastas (renderer.js espera esses elementos) -->
+    <div id="statusMessage" class="status-message hidden" style="margin-top:1rem"></div>
+        <!-- Status (mensagens) -->
+    <script src="renderer.js"></script>
+    <script>
+        const botao1 = document.getElementById('botao1');
+        const botao2 = document.getElementById('botao2');
+        const botao3 = document.getElementById('botao3');
+        const statusEl = document.getElementById('statusMessage');
+
+        function setStatus(text, type = 'success') {
+            statusEl.textContent = text;
+            statusEl.className = `status-message ${type}`;
+            statusEl.classList.remove('hidden');
+            setTimeout(() => statusEl.classList.add('hidden'), 4000);
+        }
+
+        botao1.addEventListener('click', async () => {
+            try {
+                setStatus('Abrindo VSCode...', 'loading');
+                await window.electronAPI.runCommand('code .');
+                setStatus('VSCode aberto com sucesso!', 'success');
+            } catch (err) {
+                setStatus('Erro ao abrir VSCode: ' + err, 'error');
+                console.error(err);
+            }
+        });
+
+        botao2.addEventListener('click', async () => {
+            try {
+                setStatus('Abrindo XAMPP...', 'loading');
+                await window.electronAPI.runCommand('"C:\\xampp\\xampp-control.exe"');
+                setStatus('XAMPP aberto com sucesso!', 'success');
+            } catch (err) {
+                setStatus('Erro ao abrir XAMPP: ' + err, 'error');
+                console.error(err);
+            }
+        });
+
+        botao3.addEventListener('click', async () => {
+            try {
+                setStatus('Abrindo VirtualBox...', 'loading');
+                await window.electronAPI.runCommand('"C:\\Program Files\\Oracle\\VirtualBox\\VirtualBox.exe"');
+                setStatus('VirtualBox aberto com sucesso!', 'success');
+            } catch (err) {
+                setStatus('Erro ao abrir VirtualBox: ' + err, 'error');
+                console.error(err);
+            }
+        });
+    </script>
 </body>
 </html>
