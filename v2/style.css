@@ -1,0 +1,47 @@
+body{
+    background-color: rgb(76, 25, 124);
+}
+
+.img{
+    position: relative;
+    left: 30%;
+    height: 60%;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#imagem{
+    height: 50%;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#titulo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+
+#subtitulo{
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btns{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    top: 50px;
+}

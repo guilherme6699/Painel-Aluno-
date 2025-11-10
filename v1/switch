@@ -1,0 +1,103 @@
+// Mostra o menu
+console.log("=== MENU ===");
+console.log("1 - Dizer Olá");
+console.log("2 - Mostrar data atual");
+console.log("3 - Sair");
+
+// Simulando uma escolha do usuário
+let opcao = prompt("Escolha uma opção (1, 2 ou 3):");
+
+switch (opcao) {
+  case "1":
+    console.log("Olá! 👋");
+    break;
+
+  case "2":
+    console.log("A data atual é: " + new Date().toLocaleString());
+    break;
+
+  case "3":
+    console.log("Saindo do programa...");
+    break;
+
+  default:
+    console.log("Opção inválida! ❌");
+}
+
+
+
+const prompt = require("prompt-sync")();
+
+const nome = prompt("Qual é o seu nome? ");
+
+
+
+
+
+
+
+const paths = [
+  'C:\\Program Files\\MySQL\\MySQL Server 8.0\\bin\\mysql.exe',
+  'C:\\Program Files (x86)\\MySQL\\MySQL Server 5.7\\bin\\mysql.exe',
+  'C:\\xampp\\mysql\\bin\\mysql.exe', // caso use XAMPP
+];
+
+// procura o primeiro que existir
+let mysqlPath = paths.find(p => fs.existsSync(p));
+
+if (!mysqlPath) {
+  console.error("❌ MySQL não encontrado. Verifique se ele está instalado ou adicione o caminho manualmente.");
+  process.exit(1);
+}
+
+
+
+exec(` "${mysqlPath}" -u root -p` , (error, stdout, stderr) => {
+          if (error){
+              console.error(`erro ao abrir o mysql: ${error.message}`);
+            return;
+          }
+          if (stderr) {
+              console.error(`aviso: ${stderr}`);
+            return;
+          }
+            console.log('MySQL aberto com sucesso!');
+          });
+
+
+
+
+          
+
+
+
+
+
+
+
+          const caminhos = [
+  "C:\\Program Files\\Oracle\\VirtualBox\\VirtualBox.exe",      // Instalação padrão
+  "C:\\Program Files (x86)\\Oracle\\VirtualBox\\VirtualBox.exe",
+  "D:\\Program Files\\Oracle\\VirtualBox\\VirtualBox.exe",      // Caso esteja em outro disco
+];
+
+// Verifica se o executável existe em algum dos caminhos
+let vboxPath = caminhos.find(p => fs.existsSync(p));
+
+if (!vboxPath) {
+  console.error("❌ VirtualBox não encontrado. Verifique se ele está instalado.");
+  process.exit(1);
+}
+
+// Executa o VirtualBox
+exec(`"${vboxPath}"`, (error, stdout, stderr) => {
+  if (error) {
+    console.error(`Erro ao abrir o VirtualBox: ${error.message}`);
+    return;
+  }
+  if (stderr) {
+    console.error(`Aviso: ${stderr}`);
+    return;
+  }
+  console.log("✅ VirtualBox aberto com sucesso!");
+});
