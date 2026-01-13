@@ -31,10 +31,7 @@
         const statusEl = document.getElementById('statusMessage');
 
         function setStatus(text, type = 'success') {
-            statusEl.textContent = text;
-            statusEl.className = `status-message ${type}`;
-            statusEl.classList.remove('hidden');
-            setTimeout(() => statusEl.classList.add('hidden'), 4000);
+            
         }
 
         botao1.addEventListener('click', async () => {
