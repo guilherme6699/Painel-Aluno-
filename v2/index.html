@@ -9,21 +9,42 @@
 </head>
 <body>
     <div class="img">
-    <img src="image/polvo.png" id="imagem">
+        <img src="image/polvo.png" id="imagem">
     </div>
     <h1 id="titulo">Bem vindo ao painel do Aluno</h1>
     <label id="subtitulo">faça tudo de uma forma simples</label>
-    <div class="btns">
-    <button class="btn btn-primary" id="botao1">Abrir VSCode</button>
-    <button class="btn btn-primary" id="botao2">abrir o xampp + mysql</button>
-    <button class="btn btn-primary" id="botao3">abrir o virtual box</button>
-    <button class="btn-open-modal" onclick="openCreateFolderWindow()"></button>
+
+
+
+    <div class="container">
+        <div class="card1">
+        <h1 id="title-card1"> Programação</h1>
+            <div class="btns">
+            <button class="btn btn-primary" id="botao1">Abrir VSCode</button>
+            <button class="btn btn-primary" id="botao2">abrir o xampp + mysql</button>
+            <button class="btn btn-primary" id="botao3">abrir o virtual box</button>
+            <button class="btn btn-primary" onclick="openCreateFolderWindow()">Criar pasta</button>
+            </div>
+        </div>
+
+        <div class="card2">
+        <h1 id="title-card2"> Artes Digital</h1>
+            <div class="btns">
+            <button class="btn btn-primary" id="botao4">Abrir o Corel Draw</button>
+            <button class="btn btn-primary" id="botao5">Abrir o Photoshop</button>
+            <button class="btn btn-primary" id="botao6">...</button>
+            <button class="btn btn-primary" id="botao7">...</button>
+            </div>
+        </div>
+
     </div>
-    
+
     <!-- Status e lista de pastas (renderer.js espera esses elementos) -->
     <div id="statusMessage" class="status-message hidden" style="margin-top:1rem"></div>
-        <!-- Status (mensagens) -->
+
+    <!-- Status (mensagens) -->
     <script src="renderer.js"></script>
+
     <script>
         const botao1 = document.getElementById('botao1');
         const botao2 = document.getElementById('botao2');
